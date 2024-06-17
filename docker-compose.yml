@@ -1,0 +1,27 @@
+services:
+  database:
+    container_name: sk-lucia-db
+    image: postgres
+    volumes:
+      - postgres_volume:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: sk-lucia-db
+    ports:
+      - 5432:5432
+  # app:
+  #   container_name: recipes-app
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile
+  #   ports:
+  #     - '3666:3666'
+  #   env_file:
+  #     - .env
+  #   restart: always
+  #   depends_on:
+  #     - recipes-database
+
+volumes:
+  postgres_volume:
